@@ -11,6 +11,9 @@ function App() {
     draw_probability: number,
     expected_outcome: "home win" | "away win" | "draw"
   }>();
+  const base = "https://football-hackathon-server-production.up.railway.app";
+//   const base = "https://football-hackathon-api.talente.dev"; // apparently it takes some time to be accessable
+//   const base = "http://127.0.0.1:5000"; // local server for dev
 
   useEffect(() => {
     fetch("../public/teams.json")
@@ -22,7 +25,7 @@ function App() {
   const handleSubmit: React.FormEventHandler = (e) => {
     e.preventDefault();
     fetch(
-      `http://127.0.0.1:5000/api/match-result?home=${homeTeam}&away=${awayTeam}`
+      `${base}/match-result?home=${homeTeam}&away=${awayTeam}`
     )
       .then((res) => res.json())
       .then((res) => setPrediction(res))

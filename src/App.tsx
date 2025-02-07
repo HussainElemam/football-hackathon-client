@@ -16,7 +16,7 @@ function App() {
 //   const base = "http://127.0.0.1:5000"; // local server for dev
 
   useEffect(() => {
-    fetch("../public/teams.json")
+    fetch("teams.json")
       .then((res) => res.json())
       .then((data) => setTeams(data["teams"]))
       .catch((error) => console.log("can not get teams, error:", error));

@@ -1,27 +1,29 @@
 {
   "teams": [
-    "Liverpool",
-    "West Ham",
-    "Bournemouth",
-    "Burnley",
-    "Crystal Palace",
-    "Watford",
-    "Tottenham",
-    "Leicester",
-    "Newcastle",
-    "Man United",
-    "Arsenal",
-    "Aston Villa",
-    "Brighton",
-    "Everton",
-    "Norwich",
-    "Southampton",
-    "Man City",
-    "Sheffield United",
-    "Chelsea",
-    "Wolves",
-    "Fulham",
-    "West Brom",
-    "Leeds"
+    {
+      "name": "Liverpool",
+      "logo": "../Logos/liverpool.svg",
+      "color": "#C8102E"
+    },
+    {
+      "name": "West Ham",
+      "logo": "../Logos/westham.svg",
+      "color": "#7A263A"
+    },
+    {
+      "name": "Bournemouth",
+      "logo": "../Logos/bournemouth.svg",
+      "color": "#DA291C"
+    },
+    {
+      "name": "Burnley",
+      "logo": "../Logos/burnley.svg",
+      "color": "#6C1D45"
+    },
+    {
+      "name": "Crystal Palace",
+      "logo": "../Logos/crystalpalace.svg",
+      "color": "#1B458F"
+    }
   ]
 }

@@ -24,6 +24,96 @@
       "name": "Crystal Palace",
       "logo": "../Logos/crystalpalace.svg",
       "color": "#1B458F"
+    },
+    {
+      "name": "Watford",
+      "logo": "../Logos/watford.svg",
+      "color": "#FBEE23"
+    },
+    {
+      "name": "Tottenham",
+      "logo": "../Logos/tottenham.svg",
+      "color": "#132257"
+    },
+    {
+      "name": "Leicester",
+      "logo": "../Logos/leicester.svg",
+      "color": "#0053A0"
+    },
+    {
+      "name": "Newcastle",
+      "logo": "../Logos/newcastle.svg",
+      "color": "#241F20"
+    },
+    {
+      "name": "Man United",
+      "logo": "../Logos/manunited.svg",
+      "color": "#DA291C"
+    },
+    {
+      "name": "Arsenal",
+      "logo": "../Logos/arsenal.svg",
+      "color": "#EF0107"
+    },
+    {
+      "name": "Aston Villa",
+      "logo": "../Logos/astonvilla.svg",
+      "color": "#95BFE5"
+    },
+    {
+      "name": "Brighton",
+      "logo": "../Logos/brighton.svg",
+      "color": "#0057B8"
+    },
+    {
+      "name": "Everton",
+      "logo": "../Logos/everton.svg",
+      "color": "#003399"
+    },
+    {
+      "name": "Norwich",
+      "logo": "../Logos/norwich.svg",
+      "color": "#FFF200"
+    },
+    {
+      "name": "Southampton",
+      "logo": "../Logos/southampton.svg",
+      "color": "#D71920"
+    },
+    {
+      "name": "Man City",
+      "logo": "../Logos/mancity.svg",
+      "color": "#6CABDD"
+    },
+    {
+      "name": "Sheffield United",
+      "logo": "../Logos/sheffieldunited.svg",
+      "color": "#EE2737"
+    },
+    {
+      "name": "Chelsea",
+      "logo": "../Logos/chelsea.svg",
+      "color": "#034694"
+    },
+    {
+      "name": "Wolves",
+      "logo": "../Logos/wolves.svg",
+      "color": "#FDB913"
+    },
+    {
+      "name": "Fulham",
+      "logo": "../Logos/fulham.svg",
+      "color": "#000000"
+    },
+    {
+      "name": "West Brom",
+      "logo": "../Logos/westbrom.svg",
+      "color": "#091453"
+    },
+    {
+      "name": "Leeds",
+      "logo": "../Logos/leeds.svg",
+      "color": "#1C2C5B"
     }
   ]
 }

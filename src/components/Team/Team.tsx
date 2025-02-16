@@ -8,12 +8,27 @@ export const Team = ({ side }: { side: 'Home' | 'Away' }) => {
 
 	function onClick(direction: -1 | 1) {
 		if (side === 'Home') {
-			setHomeTeam((prev) => prev + direction);
+			setHomeTeam((prev) => {
+				if (prev === 0 && direction === -1) {
+					return teams.length - 1;
+				} else if (prev === teams.length - 1 && direction === 1) {
+					return 0;
+				} else {
+					return prev + direction;
+				}
+			});
 		} else {
-			setAwayTeam((prev) => prev + direction);
+			setAwayTeam((prev) => {
+				if (prev === 0 && direction === -1) {
+					return teams.length - 1;
+				} else if (prev === teams.length - 1 && direction === 1) {
+					return 0;
+				} else {
+					return prev + direction;
+				}
+			});
 		}
 	}
-
 
 	// const [prediction, setPrediction] = useState<{
 	// 	home_winnig_probability: number,

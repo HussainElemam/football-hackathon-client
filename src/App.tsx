@@ -31,82 +31,101 @@ function App() {
         setLoading(true);
 
         fetch(
-            `${base}/match-result?home=${homeTeam}&away=${awayTeam}`
+            `${base}/match-result?home=${teams[homeTeam].name}&away=${teams[awayTeam].name}`
         )
             .then((res) => res.json())
             .then((res) => {
                 setPrediction(res);
                 setShowPredictionModal(true);
                 setLoading(false);
+                console.log("prediction: ", res);
             })
             .catch((error) => console.log('error getting the result: ', error));
     };
 
     return (
-	    <div className={'container'}>
-		    {showPredictionModal && (
-			    <Modal onClose={() => setShowPredictionModal(false)}>
-				    <div className={'prediction-container'}>
-					    <div className={'bar'}>
-						    <BarPart percentage={prediction.home_winning_probability} color={teams[homeTeam].color}
-						             teamName={teams[homeTeam].name} />
-						    <BarPart percentage={prediction.draw_probability} color={'gray'} teamName={'draw'} />
-						    <BarPart percentage={prediction.away_winning_probability} color={teams[awayTeam].color}
-						             teamName={teams[awayTeam].name} />
-					    </div>
-					    <div className={'pred-text'}>Predicted outcome is</div>
-					    <div
-						    className={'pred-text'}>{prediction?.expected_outcome === 'home win' ? teams[homeTeam].name + 'wins' : prediction?.expected_outcome === 'away win' ? teams[awayTeam].name + 'wins' : 'draw'}
-					    </div>
-				    </div>
-			    </Modal>
-		    )}
-		    <div className={'teams'}>
-			    <Team side={'Home'} />
-			    <div className={'center'}>
-				    <div className={'predict-position-button'}
-				         onClick={() => window.location.href = '/predict-position'}>
-					    Predict Player Position
-				    </div>
-				    <button
-					    className={'predict-btn'}
-					    onClick={predict}
-					    ref={predictBtn}
-					    disabled={loading}
-				    >{loading ? <div className={'dot-rolling'} /> : 'Predict'}</button>
-			    </div>
-			    <Team side={'Away'} />
-			    {/*{prediction && (prediction.away_winning_probability,*/}
-			    {/*        prediction.draw_probability,*/}
-			    {/*        prediction.expected_outcome,*/}
-			    {/*        prediction.home_winning_probability*/}
-			    {/*)}*/}
-		    </div>
-		    <div className={'predict-position-button-bottom'} onClick={() => window.location.href = '/predict-position'}>
+        <div className={'container'}>
+            {showPredictionModal && (
+                <Modal onClose={() => setShowPredictionModal(false)}>
+                    <div className={'prediction-container'}>
+                        <div className={'bar'}>
+                            <BarPart
+                                percentage={prediction.home_winning_probability}
+                                color={teams[homeTeam].color}
+                                teamName={teams[homeTeam].name}
+                                pos={"left"}
+                            />
+                            <BarPart
+                                percentage={prediction.draw_probability}
+                                color={'gray'} teamName={'draw'}
+                                pos={"center"}
+                            />
+                            <BarPart
+                                percentage={prediction.away_winning_probability}
+                                color={teams[awayTeam].color}
+                                teamName={teams[awayTeam].name}
+                                pos={'right'}
+                            />
+                        </div>
+                        <div className={'pred-text'}>Predicted outcome is</div>
+                        <div
+                            className={'pred-text'}>{prediction?.expected_outcome === 'home win' ? teams[homeTeam].name + ' wins' : prediction?.expected_outcome === 'away win' ? teams[awayTeam].name + ' wins' : 'draw'}
+                        </div>
+                    </div>
+                </Modal>
+            )}
+            <div className={'teams'}>
+                <Team side={'Home'}/>
+                <div className={'center'}>
+                    <div className={'predict-position-button'}
+                         onClick={() => window.location.href = '/predict-position'}>
+                        Predict Player Position
+                    </div>
+                    <button
+                        className={'predict-btn'}
+                        onClick={predict}
+                        ref={predictBtn}
+                        disabled={loading}
+                    >{loading ? <div className={'dot-rolling'}/> : 'Predict'}</button>
+                </div>
+                <Team side={'Away'}/>
+                {/*{prediction && (prediction.away_winning_probability,*/}
+                {/*        prediction.draw_probability,*/}
+                {/*        prediction.expected_outcome,*/}
+                {/*        prediction.home_winning_probability*/}
+                {/*)}*/}
+            </div>
+            <div className={'predict-position-button-bottom'}
+                 onClick={() => window.location.href = '/predict-position'}>
 			    <span>
 				    Predict Player Position
 			    </span>
-			    <img src={'/redirect_square.svg'} alt={'redirect'} className={'svg'} />
-		    </div>
-	    </div>
+                <img src={'/redirect_square.svg'} alt={'redirect'} className={'svg'}/>
+            </div>
+        </div>
     );
 }
 
-function BarPart({ percentage, color, teamName }: { percentage: number, color: string, teamName: string }) {
-	percentage *= 100;
-	return (
-		<div
-			title={teamName}
+function BarPart({percentage, color, teamName, pos}: {
+    percentage: number,
+    color: string,
+    teamName: string,
+    pos: "left" | "center" | "right"
+}) {
+    percentage *= 100;
+    return (
+        <div
+            title={teamName}
             style={{
                 width: `${percentage}%`,
                 backgroundColor: color,
             }}
         >
-            <span className={"percentage"} style={{
-                display: percentage < 5 ? 'inline-block' : 'none',
-            }}
-            >{Math.round(percentage)}%</span>
-            <span>{percentage > 5 && Math.round(percentage)}</span>
+            {percentage > 5 ? (
+                <span>{Math.round(percentage)}%</span>
+            ) : (
+                <span className={`percentage popup-${pos}`}>{Math.round(percentage)}%</span>
+            )}
 
         </div>
     )

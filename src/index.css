@@ -12,3 +12,9 @@ html, body {
     width: 100vw;
     background-color: #156e38;
 }
+
+.svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}

@@ -2,35 +2,60 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #000;
+  width: 100vw;
+  height: 100vh;
+  background: #f1f1f1;
+  position: fixed;
+  left: 0;
 }
 
 .separator {
   width: 80%;
   height: 1px;
-  background: #00000099;
-  margin: 0 1rem;
+  background: #000;
+}
+
+.predict-header {
+  width: 90vw;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
 .predict-title {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background: #2b8140;
+  width: 100%;
+  background: #e8e8e8;
   margin: 1rem;
   padding: 1rem;
-  border-radius: 2rem;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  //box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: -4px 4px 0 0 #000;
 
   h1 {
     font-size: 1.8rem;
-    color: #000000;
-  }
+    color: #000;
 
-  h3 {
-    font-size: 1.2rem;
-    color: #00000099;
   }
+}
+
+.predict-team-button {
+  padding: 16px;
+  font-size: 18px;
+  background: #156e38;
+  color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  box-shadow: -4px 4px 0px 0px black;
+  cursor: pointer;
+  transition: all 200ms;
+  width: 60%;
+  text-align: center;
 }
 
 .predict-container {
@@ -41,7 +66,7 @@
   display: grid;
   grid-template-columns: 1.5fr 1.5fr;
   grid-gap: 2rem;
-  justify-items: center;
+  justify-items: stretch;
 }
 
 .form-group {
@@ -50,40 +75,64 @@
   align-items: center;
   padding: 1rem;
   width: 90%;
-  border-radius: 2rem;
-  background: #2b8140;
-  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
   text-align: center;
 
   label {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
   }
 
   input {
-    width: 1fr;
-    padding: 0.5rem;
-    font-size: 1.5rem;
+    width: 50%;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
     text-align: center;
-    border-radius: 2rem;
-    border: none;
+    border: 2px solid #222;
+    //border: none;
+    //box-shadow: 0 2px 0 0 #000;
+    border-radius: 8px;
+    background: #fff0;
+    color: #000;
+    box-shadow: -2px 2px 0 0 #000;
+
+    &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &::placeholder {
+      color: #aaa;
+    }
   }
 
   input:hover {
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    //box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: -4px 4px 0 0 #000;
+    transform: translate(2px, -2px);
   }
 
-  &:hover {
-    box-shadow: none;
-    transition: box-shadow 0.2s;
+  .error {
+    border: 2px solid #d33;
+    transition: color 0.3s ease;
   }
+}
+
+.dark-b,
+.light-b {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .predict-button {
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   padding: 1.5rem 0;
+}
+
+.svg {
+  display: none;
 }
 
 .predict-btn {
@@ -106,6 +155,7 @@
 
   &:disabled {
     cursor: not-allowed;
+    background: #626263;
   }
 }
 
@@ -154,13 +204,34 @@
 }
 
 @media screen and (max-width: 768px) {
+  .predict {
+    position: static;
+  }
+
+  .predict-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .predict-team-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .svg {
+    display: block;
+    filter: invert(1);
+  }
+
   .predict-title {
     margin: 0;
     width: 100vw;
     text-align: center;
     box-shadow: none;
     border-radius: 0;
-    background: #156e38;
+    background: #e8e8e8;
   }
 
   .form-fields {
@@ -169,11 +240,23 @@
   }
 
   .dark {
-    background: #156e38;
+    background: #e8e8e8;
   }
 
   .light {
-    background: #2b8140;
+    background: #f1f1f1;
+  }
+
+  .dark-b {
+    background: #e8e8e8;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  .light-b {
+    background: #f1f1f1;
+    z-index: 2;
   }
 
   .predict-container {
@@ -183,7 +266,7 @@
   .form-group {
     width: 100vw;
     box-shadow: none;
-    border-radius: 0;
+    border-radius: 0 0 2rem 2rem;
     margin: 0 0;
 
     label {
@@ -195,7 +278,6 @@
       width: 70%;
       font-size: 18px;
       padding: 0.5rem;
-      box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.3);
     }
   }
 }

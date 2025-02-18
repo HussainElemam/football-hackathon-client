@@ -43,46 +43,60 @@ function App() {
     };
 
     return (
-        <div className={'container'}>
-            {showPredictionModal && (
-                <Modal onClose={() => setShowPredictionModal(false)}>
-                    <div className={"prediction-container"}>
-                        <div className={'bar'}>
-                            <BarPart percentage={prediction.home_winning_probability} color={teams[homeTeam].color} teamName={teams[homeTeam].name} />
-                            <BarPart percentage={prediction.draw_probability} color={"gray"} teamName={"draw"} />
-                            <BarPart percentage={prediction.away_winning_probability} color={teams[awayTeam].color} teamName={teams[awayTeam].name} />
-                        </div>
-                        <div className={"pred-text"}>Predicted outcome is</div>
-                        <div
-                            className={"pred-text"}>{prediction?.expected_outcome === "home win" ? teams[homeTeam].name + "wins" : prediction?.expected_outcome === "away win" ? teams[awayTeam].name + "wins" : "draw"}
-                        </div>
-                    </div>
-                </Modal>
-            )}
-            <div className={'teams'}>
-                <Team side={'Home'}/>
-                <button
-                    className={'predict-btn'}
-                    onClick={predict}
-                    ref={predictBtn}
-                    disabled={loading}
-                >{loading ? <div className={'dot-rolling'}/> : 'Predict'}</button>
-                <Team side={'Away'}/>
-                {/*{prediction && (prediction.away_winning_probability,*/}
-                {/*        prediction.draw_probability,*/}
-                {/*        prediction.expected_outcome,*/}
-                {/*        prediction.home_winning_probability*/}
-                {/*)}*/}
-            </div>
-        </div>
+	    <div className={'container'}>
+		    {showPredictionModal && (
+			    <Modal onClose={() => setShowPredictionModal(false)}>
+				    <div className={'prediction-container'}>
+					    <div className={'bar'}>
+						    <BarPart percentage={prediction.home_winning_probability} color={teams[homeTeam].color}
+						             teamName={teams[homeTeam].name} />
+						    <BarPart percentage={prediction.draw_probability} color={'gray'} teamName={'draw'} />
+						    <BarPart percentage={prediction.away_winning_probability} color={teams[awayTeam].color}
+						             teamName={teams[awayTeam].name} />
+					    </div>
+					    <div className={'pred-text'}>Predicted outcome is</div>
+					    <div
+						    className={'pred-text'}>{prediction?.expected_outcome === 'home win' ? teams[homeTeam].name + 'wins' : prediction?.expected_outcome === 'away win' ? teams[awayTeam].name + 'wins' : 'draw'}
+					    </div>
+				    </div>
+			    </Modal>
+		    )}
+		    <div className={'teams'}>
+			    <Team side={'Home'} />
+			    <div className={'center'}>
+				    <div className={'predict-position-button'}
+				         onClick={() => window.location.href = '/predict-position'}>
+					    Predict Player Position
+				    </div>
+				    <button
+					    className={'predict-btn'}
+					    onClick={predict}
+					    ref={predictBtn}
+					    disabled={loading}
+				    >{loading ? <div className={'dot-rolling'} /> : 'Predict'}</button>
+			    </div>
+			    <Team side={'Away'} />
+			    {/*{prediction && (prediction.away_winning_probability,*/}
+			    {/*        prediction.draw_probability,*/}
+			    {/*        prediction.expected_outcome,*/}
+			    {/*        prediction.home_winning_probability*/}
+			    {/*)}*/}
+		    </div>
+		    <div className={'predict-position-button-bottom'} onClick={() => window.location.href = '/predict-position'}>
+			    <span>
+				    Predict Player Position
+			    </span>
+			    <img src={'/redirect_square.svg'} alt={'redirect'} className={'svg'} />
+		    </div>
+	    </div>
     );
 }
 
-function BarPart({percentage, color, teamName}: {percentage: number, color: string, teamName: string}) {
-    percentage *= 100;
-    return (
-        <div
-            title={teamName}
+function BarPart({ percentage, color, teamName }: { percentage: number, color: string, teamName: string }) {
+	percentage *= 100;
+	return (
+		<div
+			title={teamName}
             style={{
                 width: `${percentage}%`,
                 backgroundColor: color,

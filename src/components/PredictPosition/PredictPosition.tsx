@@ -132,7 +132,7 @@ function PredictPosition() {
 					console.log(data);
 					setResult(data.predicted_positions);
 					setLoading(false);
-					setShowModal(true);
+					// setShowModal(true);
 				});
 			}
 		);
@@ -149,7 +149,20 @@ function PredictPosition() {
 					<img src={'/redirect_square.svg'} alt={'redirect'} className={'svg'} />
 				</div>
 				<div className={'predict-title'}>
-					<h1>Predict Position of player</h1>
+					{loading ?
+						<div className={'dot-rolling-title'} style={{ height: '55px' }} /> : (result.length > 0 ?
+							<div className={'predict-result'}>
+								<span>
+									{result.length === 1 ? 'The predicted position is: ' : 'The predicted positions are: '}
+								</span>
+								{result.map((position, index) => {
+									return (
+										<div key={index} className={'result'}>
+											{position}
+										</div>
+									);
+								})}
+							</div> : <h1>Predict Position of player</h1>)}
 				</div>
 			</div>
 			<div className={'predict-container'}>
@@ -171,6 +184,22 @@ function PredictPosition() {
 							);
 						})}
 					</div>
+					<div className={'predict-footer'}>
+						{loading ?
+							<div className={'dot-rolling-title'} style={{ height: '55px' }} /> : (result.length > 0 ?
+								<div className={'predict-result'}>
+								<span>
+									{result.length === 1 ? 'The predicted position is: ' : 'The predicted positions are: '}
+								</span>
+									{result.map((position, index) => {
+										return (
+											<div key={index} className={'result'}>
+												{position}
+											</div>
+										);
+									})}
+								</div> : <></ >)}
+					</div>
 					<div className={'predict-button light'}>
 						<button className={'predict-btn'} type={'submit'}
 						        disabled={fields.map((field) => field.error).includes(true)}>
@@ -181,17 +210,17 @@ function PredictPosition() {
 				</form>
 			</div>
 			{showModal && <Modal onClose={() => setShowModal(false)}>
-				<div className={'predict-result'}>
-					{result.length === 1 ? 'The predicted position is:' : 'The predicted positions are:'}
-					{result.map((position, index) => {
-						return (
-							<div key={index} className={'result'}>
-								{position}
+							<div className={'predict-result'}>
+				  {result.length === 1 ? 'The predicted position is:' : 'The predicted positions are:'}
+				  {result.map((position, index) => {
+					  return (
+						  <div key={index} className={'result'}>
+							  {position}
+						  </div>
+					  );
+				  })}
 							</div>
-						);
-					})}
-				</div>
-			</Modal>}
+						</Modal>}
 		</div>
 	);
 }

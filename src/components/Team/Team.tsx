@@ -55,19 +55,28 @@ export const Team = ({ side }: { side: 'Home' | 'Away' }) => {
 	return (
 		<div className={'team'}>
 			<div className={'arrow'} onClick={() => onClick(1)}>
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={128}><title>chevron-up</title>
-					<path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z" />
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>chevron-up</title>
+					<path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/>
 				</svg>
 			</div>
-			<div className={'team-logo'}>
-				{(teams && teams.length > 0) ? <img src={teams[side === 'Home' ? homeTeam : awayTeam].logo}
-				                                    alt={teams[side === 'Home' ? homeTeam : awayTeam].name}
-													className={"team-logo"}
-				/> : <> </>}
+			<div className={'inner'}>
+				<div className={'side text'}>{side}</div>
+				<div className={'team-logo-container'}>
+					{teams && teams.length > 0 && (
+						<img
+							src={teams[side === 'Home' ? homeTeam : awayTeam].logo}
+							alt={teams[side === 'Home' ? homeTeam : awayTeam].name}
+							className={"team-logo"}
+						/>
+					)}
+				</div>
+				{teams && teams.length > 0 && (
+					<div className={'team-name text'}>{teams[side == 'Home' ? homeTeam : awayTeam].name}</div>
+				)}
 			</div>
 			<div className={'arrow'} onClick={() => onClick(-1)}>
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={128}><title>chevron-down</title>
-					<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>chevron-down</title>
+					<path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/>
 				</svg>
 			</div>
 		</div>

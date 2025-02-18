@@ -34,6 +34,56 @@
   overflow: hidden; /* Prevents scrolling */
 }
 
+.prediction-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 30px;
+
+  .bar {
+    width: 75%;
+    height: 40px;
+    color: white;
+    display: flex;
+
+
+
+    > div {
+      height: 100%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .percentage {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #00BCD4;
+        padding: 3px;
+        font-size: 12px;
+        border-radius: 2px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -9px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-width: 5px;
+          border-color: #00BCD4 transparent transparent transparent;
+          border-style: solid;
+        }
+      }
+    }
+  }
+}
+
 .teams {
   height: 100%;
   width: 100%;

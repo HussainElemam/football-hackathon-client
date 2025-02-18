@@ -13,6 +13,7 @@
 
 .team-logo-container {
   width: 150px;
+  height: 200px;
   user-select: none;
   padding-block: 16px;
   display: flex;
@@ -46,6 +47,8 @@
   }
   .arrow {
     transform: rotate(-90deg);
-
+  }
+  .team-logo-container {
+    height: auto;
   }
 }

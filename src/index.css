@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 html, body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -9,7 +10,5 @@ html, body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
     background-color: #156e38;
-    overflow: hidden; /* Prevents scrolling */
 }

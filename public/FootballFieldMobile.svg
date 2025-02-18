@@ -47,14 +47,14 @@
   <path class="cls-2" d="m40.01,1727.4c10.58.32,42.88,2.68,72,27,39.12,32.67,41.7,79.27,42,87"/>
   <path class="cls-2" d="m154.51,78.49c-.32,10.58-2.68,42.88-27,72-32.67,39.12-79.27,41.7-87,42"/>
   <line class="cls-3" x1="1040.5" y1="960" x2="44" y2="960"/>
-  <circle class="cls-3" cx="556.5" cy="960.5" r="142.5"/>
-  <circle class="cls-1" cx="556.5" cy="959.5" r="16"/>
-  <rect class="cls-3" x="467" y="-44" width="179" height="426" transform="translate(725.5 -387.5) rotate(90)"/>
-  <rect class="cls-3" x="518.5" y="20.5" width="76" height="194" transform="translate(674 -439) rotate(90)"/>
-  <path class="cls-3" d="m631,258.5s-17.28,24.34-74.5,24.5c-57.22.16-74.5-24.5-74.5-24.5"/>
-  <circle class="cls-1" cx="556.5" cy="202.5" r="8"/>
-  <rect class="cls-3" x="484.59" y="1537.97" width="179" height="426" transform="translate(-1176.89 2325.06) rotate(-90)"/>
-  <rect class="cls-3" x="536.09" y="1705.47" width="76" height="194" transform="translate(-1228.39 2376.56) rotate(-90)"/>
-  <path class="cls-3" d="m499.59,1661.47s17.28-24.34,74.5-24.5,74.5,24.5,74.5,24.5"/>
-  <circle class="cls-1" cx="574.09" cy="1717.47" r="8"/>
+  <circle class="cls-3" cx="540" cy="960" r="142.5"/>
+  <circle class="cls-1" cx="540" cy="960" r="16"/>
+  <rect class="cls-3" x="450.5" y="-44" width="179" height="426" transform="translate(709 -371) rotate(90)"/>
+  <rect class="cls-3" x="502" y="20.5" width="76" height="194" transform="translate(657.5 -422.5) rotate(90)"/>
+  <path class="cls-3" d="m614.5,258.5s-17.28,24.34-74.5,24.5c-57.22.16-74.5-24.5-74.5-24.5"/>
+  <circle class="cls-1" cx="540" cy="202.5" r="8"/>
+  <rect class="cls-3" x="450.5" y="1537.97" width="179" height="426" transform="translate(-1210.97 2290.97) rotate(-90)"/>
+  <rect class="cls-3" x="502" y="1705.47" width="76" height="194" transform="translate(-1262.47 2342.47) rotate(-90)"/>
+  <path class="cls-3" d="m465.5,1661.47s17.28-24.34,74.5-24.5,74.5,24.5,74.5,24.5"/>
+  <circle class="cls-1" cx="540" cy="1717.47" r="8"/>
 </svg>

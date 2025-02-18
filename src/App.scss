@@ -85,9 +85,6 @@
 
       .percentage {
         position: absolute;
-        top: -25px;
-        left: 50%;
-        transform: translateX(-50%);
         background: #00BCD4;
         padding: 3px;
         font-size: 12px;
@@ -96,14 +93,41 @@
         &::after {
           content: "";
           position: absolute;
-          bottom: -9px;
-          left: 50%;
-          transform: translateX(-50%);
           width: 0;
           height: 0;
           border-width: 5px;
-          border-color: #00BCD4 transparent transparent transparent;
           border-style: solid;
+        }
+
+        &.popup-center {
+          top: -25px;
+
+          &::after {
+            bottom: -9px;
+            border-color: #00BCD4 transparent transparent transparent;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        &.popup-left {
+          left: -29px;
+
+          &::after {
+            right: -10px;
+            border-color: transparent transparent transparent #00BCD4;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+        &.popup-right {
+          right: -29px;
+
+          &::after {
+            left: -10px;
+            border-color: transparent #00BCD4 transparent transparent;
+            top: 50%;
+            transform: translateY(-50%);
+          }
         }
       }
     }
